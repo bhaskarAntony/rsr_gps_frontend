@@ -33,7 +33,7 @@ const TripPage = () => {
       if (user?.isIntrip) {
         setLoading(true)
         try {
-          const response = await axios.get(`http://localhost:4000/api/driver/trip/list/${startedTripId}`);
+          const response = await axios.get(`https://rsr-gps-backend.onrender.com/api/driver/trip/list/${startedTripId}`);
           console.log("Fetched Trip Data:", response.data);
           setLoading(false)
           setTripStatus(response.data?.data?.status || "not-started");
@@ -63,7 +63,7 @@ const TripPage = () => {
             startLocation: { latitude, longitude }, // Send current location
           };
   
-          const response = await axios.post(`http://localhost:4000/api/driver/start`, data);
+          const response = await axios.post(`https://rsr-gps-backend.onrender.com/api/driver/start`, data);
           console.log("Trip started:", response.data);
           setLoading(false)
           localStorage.setItem('driver', JSON.stringify({ driver: response.data.driver }));
@@ -85,7 +85,7 @@ const TripPage = () => {
 
   const handlePauseTrip = async () => {
     try {
-        const responce = await axios.patch(`http://localhost:4000/api/driver/${driverId}/status`, {status:'paused'})
+        const responce = await axios.patch(`https://rsr-gps-backend.onrender.com/api/driver/${driverId}/status`, {status:'paused'})
         console.log(responce);
         setTripStatus("paused");
         
@@ -107,7 +107,7 @@ const TripPage = () => {
          endLocation: { latitude, longitude }, 
         };
         try {
-          const responce = await axios.patch(`http://localhost:4000/api/driver/${driverId}/status`, data)
+          const responce = await axios.patch(`https://rsr-gps-backend.onrender.com/api/driver/${driverId}/status`, data)
           console.log(responce);
           setLoading(false)
           setTripStatus("completed");
@@ -123,7 +123,7 @@ const TripPage = () => {
 
   const handleResumetrip = async()=>{
     try {
-        const responce = await axios.patch(`http://localhost:4000/api/driver/${driverId}/status`, {status:'in_progress'})
+        const responce = await axios.patch(`https://rsr-gps-backend.onrender.com/api/driver/${driverId}/status`, {status:'in_progress'})
         console.log(responce);
         setTripStatus("in_progress");
     } catch (error) {

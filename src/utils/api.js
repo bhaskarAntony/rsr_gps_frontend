@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API = axios.create({ baseURL: "http://localhost:4000/api" });
+const API = axios.create({ baseURL: "https://rsr-gps-backend.onrender.com/api" });
 
 // Driver APIs
 export const registerDriver = (data) => API.post("/driver/register", data);
