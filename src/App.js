@@ -8,6 +8,7 @@ import DriverList from "./components/Admin/DriverList";
 import TripList from "./components/Admin/TripDetails";
 import DriverDashboard from "./components/Driver/DriverDashboard";
 import './App.css'
+import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 
 const App = () => {
   return (
@@ -17,11 +18,14 @@ const App = () => {
       </header>
       <Routes>
         {/* Driver Pages */}
-        <Route path="/" element={<DriverDashboard />} />
+       
         <Route path="/login" element={<DriverLogin />} />
         <Route path="/driver/register" element={<DriverRegister />} />
-   
-        <Route path="/driver/trip/:routeId/:driverId" element={<TripPage />} />
+
+        <Route path="/" element={<PrivateRoute><DriverDashboard /></PrivateRoute>}>
+          <Route path="/driver/trip/:routeId/:driverId" element={<PrivateRoute><TripPage /></PrivateRoute>} />
+          <Route path="/*" element={<h1>Not found</h1>} />
+        </Route>
 
         {/* <Route path="/admin/dashboard" element={<AdminDashboard />} />
         <Route path="/admin/drivers" element={<DriverList />} />
