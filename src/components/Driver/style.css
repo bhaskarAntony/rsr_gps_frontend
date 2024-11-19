@@ -1,0 +1,128 @@
+.login{
+
+}
+.login .top{
+    min-height: 200px;
+    background-color: #1A1A19;
+}
+.login-card{
+    background-color: #fff;
+    transform: translateY(-100px);
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    border-bottom: 4px solid #1A1A19;
+    border-radius: 20px;
+}
+.login-card .form-control{
+    padding: 10px;
+    border-radius: 100px;
+}
+
+
+/* dashboard  */
+.top-card{
+    min-height: 150px;
+    background-color: #1A1A19;
+}
+.trip-card{
+    background-color: #1A1A19;
+    min-height: 200px;
+    border-radius: 10px;
+}
+.employee img{
+    width: 50px;
+    height: 50px;
+}
+.employee{
+    
+}
+
+/* Container for the horizontal scroll */
+.employees-scroll-container {
+    display: flex;
+    gap: 1rem; /* Space between cards */
+    overflow-x: auto; /* Enable horizontal scrolling */
+    scroll-snap-type: x mandatory; /* Enable scroll snapping */
+    padding-bottom: 1rem; /* Padding to prevent clipping at the bottom */
+    padding-left: 1rem; /* To allow some space for the first card */
+  }
+  
+  /* Each employee card will snap into place */
+  .employee {
+    background-color: #48484775;
+    scroll-snap-align: start; /* Align each card at the start of the scroll container */
+    flex-shrink: 0; /* Prevent items from shrinking */
+    min-width: 80%; /* Cards take up 80% of the container width */
+    max-width: 80%; /* Ensure cards don't exceed 80% of the container's width */
+    margin-right: 10px; /* Optional: gap between cards */
+  }
+  
+  /* Optional: Styling for the scroll bar (if you want a custom scrollbar) */
+  .employees-scroll-container::-webkit-scrollbar {
+    height: 8px;
+  }
+  
+  .employees-scroll-container::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+  }
+  
+  .employees-scroll-container::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+  }
+  
+
+
+
+  .link-form{
+    border-bottom: 4px solid #1A1A19;
+  }
+
+  .link-form .form-control{
+    padding: 15px;
+    border-radius: 100px;
+    margin-bottom: 20px;
+  }
+
+  .track{
+    display: flex;
+    flex-direction: column;
+  }
+  .track .map{
+    flex: 1;
+  }
+  .track .details{
+    height: 300px;
+    max-height: 300px;
+    overflow: auto;
+  }
+/* Map Styling */
+.map {
+    height: 100%;
+    position: relative;
+  }
+  .tracking-main{
+    background-color: #cee3e2 !important;
+    min-height: 100vh;
+  }
+
+  .tracking{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: 100%;
+    min-height: 90vh;
+  }
+  .trip-tracking{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .completed-trip{
+    background-color: #12c06a !important;
+    min-height: 100vh;
+  }
+  

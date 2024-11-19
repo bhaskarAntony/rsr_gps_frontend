@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import DriverRegister from "./components/Driver/DriverRegister";
+import DriverLogin from "./components/Driver/DriverLogin";
+import TripPage from "./components/Driver/TripPage";
+import AdminDashboard from "./components/Admin/AdminDashboard";
+import DriverList from "./components/Admin/DriverList";
+import TripList from "./components/Admin/TripDetails";
+import DriverDashboard from "./components/Driver/DriverDashboard";
+import './App.css'
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <Router>
+      <header className="bg-light p-3 border-bottom shadow-sm">
+        <h1 className="fs-4">RSR Tours & Travels</h1>
       </header>
-    </div>
+      <Routes>
+        {/* Driver Pages */}
+        <Route path="/" element={<DriverDashboard />} />
+        <Route path="/login" element={<DriverLogin />} />
+        <Route path="/driver/register" element={<DriverRegister />} />
+   
+        <Route path="/driver/trip/:routeId/:driverId" element={<TripPage />} />
+
+        {/* <Route path="/admin/dashboard" element={<AdminDashboard />} />
+        <Route path="/admin/drivers" element={<DriverList />} />
+        <Route path="/admin/trips" element={<TripList />} /> */}
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;
