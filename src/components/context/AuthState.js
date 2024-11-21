@@ -32,7 +32,7 @@ const AuthState = ({ children }) => {
     }
 
     try {
-      const res = await axios.get(`https://rsr-gps-backend.onrender.com/api/driver/verify`);
+      const res = await axios.get(`http://localhost:4000/api/driver/verify`);
       dispatch({
         type: USER_LOADED,
         payload: res.data,
@@ -55,7 +55,7 @@ const AuthState = ({ children }) => {
     };
 
     try {
-      const res = await axios.post(`https://rsr-gps-backend.onrender.com/api/driver/register`, formData, config);
+      const res = await axios.post(`http://localhost:4000/api/driver/register`, formData, config);
       dispatch({
         type: REGISTER_SUCCESS,
         payload: res.data,
@@ -78,8 +78,8 @@ const AuthState = ({ children }) => {
     //   },
     // };
 
-    try {
-      const res = await axios.post(`https://rsr-gps-backend.onrender.com/api/driver/login`, formData);
+    try {//http://localhost:4000
+      const res = await axios.post(`http://localhost:4000/api/driver/login`, formData);
       console.log(res);
       dispatch({
         type: LOGIN_SUCCESS,

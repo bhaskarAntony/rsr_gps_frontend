@@ -22,7 +22,7 @@ const DriverDashboard = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`https://rsr-gps-backend.onrender.com/api/driver/${user?._id}/routes`);
+        const response = await axios.get(`http://localhost:4000/api/driver/${user?._id}/routes`);
         setRoutes(response.data);
       } catch (error) {
         console.error("Failed to fetch routes:", error);

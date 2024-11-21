@@ -21,15 +21,11 @@ const App = () => {
        
         <Route path="/login" element={<DriverLogin />} />
         <Route path="/driver/register" element={<DriverRegister />} />
+        <Route path="/" element={<PrivateRoute><DriverDashboard /></PrivateRoute>}/>
+        <Route path="/*" element={<h1>Not found</h1>} />
+        <Route path="/driver/trip/:routeId/:driverId" element={<PrivateRoute><TripPage /></PrivateRoute>} />
 
-        <Route path="/" element={<PrivateRoute><DriverDashboard /></PrivateRoute>}>
-          <Route path="/driver/trip/:routeId/:driverId" element={<PrivateRoute><TripPage /></PrivateRoute>} />
-          <Route path="/*" element={<h1>Not found</h1>} />
-        </Route>
-
-        {/* <Route path="/admin/dashboard" element={<AdminDashboard />} />
-        <Route path="/admin/drivers" element={<DriverList />} />
-        <Route path="/admin/trips" element={<TripList />} /> */}
+        
       </Routes>
     </Router>
   );
