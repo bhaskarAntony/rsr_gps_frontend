@@ -16,7 +16,7 @@ const DriverLogin = () => {
       navigate("/"); // Redirect to the dashboard after successful login
     }
     if (error) {
-      alert(error);
+      alert(error.message);
       clearErrors();
     }
   }, [isAuthenticated, error, navigate, clearErrors]);
