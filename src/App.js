@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import DriverRegister from "./components/Driver/DriverRegister";
 import DriverLogin from "./components/Driver/DriverLogin";
@@ -9,12 +9,17 @@ import TripList from "./components/Admin/TripDetails";
 import DriverDashboard from "./components/Driver/DriverDashboard";
 import './App.css'
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
+import AuthContext from "./components/context/AuthContext";
 
 const App = () => {
+  const {isAuthenticated, logout} = useContext(AuthContext)
   return (
     <Router>
-      <header className="bg-light p-3 border-bottom shadow-sm">
-        <h1 className="fs-4">RSR Tours & Travels</h1>
+      <header className="bg-light p-3 border-bottom shadow-sm d-flex gap-2 justify-content-between align-items-center">
+        <h1 className="fs-4">RSR</h1>
+       {
+        isAuthenticated?( <button className="btn btn-danger" onClick={logout}>Logout</button>):(null)
+       }
       </header>
       <Routes>
         {/* Driver Pages */}

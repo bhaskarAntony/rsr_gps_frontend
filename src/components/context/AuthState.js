@@ -13,6 +13,7 @@ import {
   CLEAR_ERRORS,
 } from "../../types";
 import AuthContext from "./AuthContext";
+import Loading from "../loading/Loading";
 
 const AuthState = ({ children }) => {
   const initialState = {
@@ -105,6 +106,10 @@ const AuthState = ({ children }) => {
 
   // Clear Errors
   const clearErrors = () => dispatch({ type: CLEAR_ERRORS });
+
+  if(state.loading){
+    return <Loading/>
+  }
 
   return (
     <AuthContext.Provider
